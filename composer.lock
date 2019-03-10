@@ -1,11 +1,45 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d2f911d8687b315c6d03ad948876f6d",
+    "content-hash": "0aef3da85eb42ee9d272c2bdb1df2f88",
     "packages": [
+        {
+            "name": "boolfalse/clearcaches",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/boolfalse/clearcaches.git",
+                "reference": "bdaacc6b198b9ddafc3a7dfbfcee9ce8bf049918"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/boolfalse/clearcaches/zipball/bdaacc6b198b9ddafc3a7dfbfcee9ce8bf049918",
+                "reference": "bdaacc6b198b9ddafc3a7dfbfcee9ce8bf049918",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Boolfalse\\ClearCaches\\ClearCachesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Boolfalse\\ClearCaches\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Package for recreating Laravel all caches, and for dropping all DB tables",
+            "time": "2018-10-01T11:52:46+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
