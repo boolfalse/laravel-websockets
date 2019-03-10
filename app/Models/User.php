@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,11 +32,11 @@ class User extends Authenticatable
     }
 
     public function posts() {
-      return $this->hasMany('App\Post');
+      return $this->hasMany('App\Models\Post');
     }
 
     public function comments()
     {
-      return $this->hasMany('App\Comment');
+      return $this->hasMany('App\Models\Comment');
     }
 }

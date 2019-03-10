@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\Models\Post;
 use Auth;
 
 class PostController extends Controller
@@ -51,7 +51,7 @@ class PostController extends Controller
 
       $post = $user->posts()->create([
         'title' => $request->title,
-        'content' => $request->content,
+        'content' => $request->getContent(),
         'published' => $request->has('published')
       ]);
 
@@ -98,7 +98,7 @@ class PostController extends Controller
 
       $post = Post::findOrFail($id);
       $post->title = $request->title;
-      $post->content = $request->content;
+      $post->content = $request->getContent();
       $post->published = ($request->has('published') ? true : false);
       $post->save();
 
