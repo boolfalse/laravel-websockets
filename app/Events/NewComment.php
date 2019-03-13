@@ -19,21 +19,11 @@ class NewComment implements ShouldBroadcastNow
 
     public $comment;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
     public function __construct(Comment $comment)
     {
-      $this->comment = $comment;
+        $this->comment = $comment;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
     public function broadcastOn()
     {
         return new PrivateChannel('post.'.$this->comment->post->id);
@@ -41,13 +31,13 @@ class NewComment implements ShouldBroadcastNow
 
     public function broadcastWith()
     {
-      return [
-        'body' => $this->comment->body,
-        'created_at' => $this->comment->created_at->toFormattedDateString(),
-        'user' => [
-          'name' => $this->comment->user->name,
-          'avatar' => 'http://lorempixel.com/50/50'
-        ]
-      ];
+        return [
+            'body' => $this->comment->body,
+            'created_at' => $this->comment->created_at->toFormattedDateString(),
+            'user' => [
+                'name' => $this->comment->user->name,
+                'avatar' => 'http://lorempixel.com/50/50'
+            ]
+        ];
     }
 }
