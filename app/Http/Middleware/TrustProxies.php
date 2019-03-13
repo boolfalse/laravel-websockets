@@ -9,11 +9,6 @@ class TrustProxies extends Middleware
 {
     protected $proxies;
 
-    protected $headers = [
-        Request::HEADER_FORWARDED => 'FORWARDED',
-        Request::HEADER_X_FORWARDED_FOR => 'X_FORWARDED_FOR',
-        Request::HEADER_X_FORWARDED_HOST => 'X_FORWARDED_HOST',
-        Request::HEADER_X_FORWARDED_PORT => 'X_FORWARDED_PORT',
-        Request::HEADER_X_FORWARDED_PROTO => 'X_FORWARDED_PROTO',
-    ];
+    //ss upgraded laravel version from 5.5 to 5.6 via https://www.youtube.com/watch?v=GzFts60G2NI
+    protected $headers = Request::HEADER_X_FORWARDED_ALL;
 }
