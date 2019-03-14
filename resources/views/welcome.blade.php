@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel Echo</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -87,5 +88,14 @@
                 </p>
             </div>
         </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        Echo.channel('home')
+            .listen('NewMessage', (event) => {
+                console.log(event);
+            });
+    </script>
+
     </body>
 </html>

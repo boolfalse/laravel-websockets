@@ -47,9 +47,14 @@ import Echo from 'laravel-echo'
 
 window.Pusher = require('pusher-js');
 
+//ss https://github.com/beyondcode/laravel-websockets/issues/86#issuecomment-454001203
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: '66cf774bdc63fce4a95b',
-    cluster: 'ap2',
-    encrypted: true
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: false, // for pusher or custom https pusher (default is false)
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    disableStats: true,
+    enabledTransports: ['ws', 'wss'], // only use ws and wss as valid transports
 });
