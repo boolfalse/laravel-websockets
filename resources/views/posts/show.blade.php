@@ -60,7 +60,7 @@
             },
             methods: {
                 getComments() {
-                    axios.get('/api/posts/'+this.post.id+'/comments')
+                    axios.get('/api/posts/' + this.post.id + '/comments')
                         .then((response) => {
                             this.comments = response.data
                         })
@@ -69,7 +69,7 @@
                         });
                 },
                 postComment() {
-                    axios.post('/api/posts/'+this.post.id+'/comment', {
+                    axios.post('/api/posts/' + this.post.id + '/comment', {
                         api_token: this.user.api_token,
                         body: this.commentBox
                     })
@@ -82,8 +82,8 @@
                         })
                 },
                 listen() {
-                    Echo.private('post.' + this.post.id)
-                    // Echo.channel('post.' + this.post.id)
+                    // Echo.private('post.' + this.post.id)
+                    Echo.channel('post.' + this.post.id)
                         .listen('NewComment', (comment) => {
                         // .listen('.customComment', (comment) => {
                             this.comments.unshift(comment);

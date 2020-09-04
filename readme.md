@@ -14,6 +14,7 @@ setup DB
 setup .env
 $ php artisan clearcaches
 $ npm run dev
+$ php artisan droptables
 $ php artisan migrate
 $ php artisan db:seed
 $ php artisan websockets:serve

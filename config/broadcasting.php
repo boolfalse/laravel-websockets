@@ -37,11 +37,12 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'encrypted' => false, // for pusher or custom https pusher (default is false)
+                'encrypted' => false, // for pusher or custom https pusher (default is false). for pusher required true (true for SSL)
 
-                'host' => '127.0.0.1', // 'laravel-websockets.local',
+                // for beyondcode/laravel-websockets
+                'host' => '127.0.0.1', // 'laravel-websockets.local', or our site like 'example.com'
                 'port' => 6001,
-                'scheme' => 'http',
+                'scheme' => 'http', // for SSL
             ],
         ],
 

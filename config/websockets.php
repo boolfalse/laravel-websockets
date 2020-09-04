@@ -17,8 +17,8 @@ return [
             'name' => env('APP_NAME'),
             'key' => env('PUSHER_APP_KEY'),
             'secret' => env('PUSHER_APP_SECRET'),
-            'enable_client_messages' => false,
-            'enable_statistics' => true,
+            'enable_client_messages' => false, // these are direct basically  peer-to-peer client message sto client can actually send messages to each other without going trough the server
+            'enable_statistics' => true, // this will show statistics by default on '/laravel-websockets' route
         ],
     ],
 
@@ -85,6 +85,10 @@ return [
          * default is to resolve everything to 127.0.0.1.
          */
         'perform_dns_lookup' => false,
+        // if your laravel-server and socket-server are on the same server, then you can just leave this as false
+        // but when their on separate servers, then you gonna do a dns lookup, for identifying who it is
+        // '1.1.1.1' id for CloudFlares privacy DNS (recommended)
+        // '8.8.8.8' or '8.8.4.4' id for Google
     ],
 
     /*
@@ -111,6 +115,7 @@ return [
          */
         'passphrase' => null,
     ],
+    // after you set SSL settings, don't forget to change the 'scheme' to 'https' and to set 'encrypted' to 'true'
 
     /*
      * Channel Manager

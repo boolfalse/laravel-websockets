@@ -1049,15 +1049,16 @@ if (token) {
 
 window.Pusher = __webpack_require__(36);
 
+//ss https://github.com/beyondcode/laravel-websockets/issues/86#issuecomment-454001203
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo__["a" /* default */]({
     broadcaster: 'pusher',
-    key: "66cf774bdc63fce4a95b",
+    key: "aaa585bff95bb0e7f089",
     cluster: "ap2",
-    encrypted: false, // for pusher or custom https pusher (default is false)
+    encrypted: false, // for pusher or custom https pusher (default is false). for pusher required true
     wsHost: window.location.hostname,
     wsPort: 6001,
     disableStats: true,
-    enabledTransports: ['ws', 'wss'] // <-- only use ws and wss as valid transports
+    enabledTransports: ['ws', 'wss'] // only use ws and wss as valid transports
 });
 
 /***/ }),
